@@ -1,117 +1,13 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_horizontal_margin"
     tools:context=".MainActivity"
     android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/swipetest"
+    <ListView
+        android:id="@+id/entryList"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="滑动测试"
-        android:clickable="true"
-        android:onClick="startswipe"/>
-    <TextView
-        android:id="@+id/swipescale"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="测试滑动过程中并缩小"
-        android:clickable="true"
-        android:onClick="startswipeandother"/>
-    <TextView
-        android:id="@+id/fixedScroll"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="scrollView滑动固定"
-        android:clickable="true"
-        android:onClick="scrolltest"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="scroller测试"
-        android:clickable="true"
-        android:onClick="scrollertest"
-        android:visibility="gone"/>
-
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="EventBus测试"
-        android:clickable="true"
-        android:onClick="eventbusclick"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="FragmentActivity测试"
-        android:clickable="true"
-        android:onClick="onFragmentTest"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="RxJava测试"
-        android:clickable="true"
-        android:onClick="onRxJavaTest"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="Android Studio生成Activity测试"
-        android:clickable="true"
-        android:onClick="onFullscreenActivity"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="TabFragment 测试"
-        android:clickable="true"
-        android:onClick="onTabFragment"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="图片选择器测试"
-        android:clickable="true"
-        android:onClick="onPictureSelect"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/yinying_gradient"
-        android:gravity="center"
-        android:text="GridLayout测试"
-        android:clickable="true"
-        android:onClick="onGridLayoutTest"/>
-
-</LinearLayout>
+        android:layout_height="match_parent"/>
+</FrameLayout>

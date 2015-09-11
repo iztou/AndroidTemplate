@@ -29,7 +29,7 @@
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
         <activity
-            android:name=".MainActivity"
+            android:name=".entryui.MainActivity"
             android:label="@string/app_name"
             android:uiOptions="splitActionBarWhenNarrow">
             <intent-filter>
@@ -50,7 +50,7 @@
             android:name=".SwipeLayoutActivity"
             android:theme="@style/CustomActionBarOverlay"
             android:label="主界面"
-            android:parentActivityName=".MainActivity" >
+            android:parentActivityName=".entryui.MainActivity" >
         </activity>
         <activity android:name=".SwipeOtherActivity"/>
         <activity android:name=".MyScrollActicity" />
