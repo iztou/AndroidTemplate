@@ -1,0 +1,37 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+    <item android:id="@+id/action_settings" android:title="Setting"
+        android:orderInCategory="100" android:showAsAction="always|withText" android:icon="@drawable/ic_launcher" />
+    <item android:id="@+id/action_test1" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test2" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test3" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test4" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test5" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test6" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test7" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test8" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test9" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test10" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test11" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test12" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test13" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test14" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test15" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+    <item android:id="@+id/action_test16" android:title="Test"
+        android:orderInCategory="200" android:showAsAction="never" />
+</menu>

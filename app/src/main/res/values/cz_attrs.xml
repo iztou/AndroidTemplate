@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="SwipeLayout">
+        <attr name="drag" format="enum">
+            <enum name="left" value="0" />
+            <enum name="top" value="1" />
+            <enum name="right" value="2" />
+            <enum name="bottom" value="3" />
+        </attr>
+        <attr name="style" format="enum">
+            <enum name="pull_out" value="0"/>
+            <enum name="lay_down" value="1"/>
+        </attr>
+    </declare-styleable>
+</resources>
