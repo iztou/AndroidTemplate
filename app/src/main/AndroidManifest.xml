@@ -23,7 +23,10 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".MyApplication"
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
@@ -31,7 +34,7 @@
         <activity
             android:name=".entryui.MainActivity"
             android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow">
+            android:uiOptions="splitActionBarWhenNarrow" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -48,11 +51,11 @@
 
         <activity
             android:name=".SwipeLayoutActivity"
-            android:theme="@style/CustomActionBarOverlay"
             android:label="主界面"
-            android:parentActivityName=".entryui.MainActivity" >
+            android:parentActivityName=".entryui.MainActivity"
+            android:theme="@style/CustomActionBarOverlay" >
         </activity>
-        <activity android:name=".SwipeOtherActivity"/>
+        <activity android:name=".SwipeOtherActivity" />
         <activity android:name=".MyScrollActicity" />
         <activity android:name=".ScrollerActicity" />
         <activity android:name=".EventBus1" />
@@ -69,6 +72,10 @@
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme" >
+        </activity>
+        <activity
+            android:name=".encrypt.Base64Activity"
+            android:label="@string/title_activity_base64" >
         </activity>
     </application>
 

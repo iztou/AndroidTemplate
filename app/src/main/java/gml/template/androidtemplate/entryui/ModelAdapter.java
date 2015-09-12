@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.norbsoft.typefacehelper.TypefaceHelper;
+
 import gml.template.androidtemplate.R;
 
 /**
@@ -48,6 +50,7 @@ public class ModelAdapter extends BaseAdapter {
             viewHolder.item = convertView = LayoutInflater.from(context).inflate(R.layout.activity_main_item, null);
             viewHolder.title = (TextView) convertView.findViewById(R.id.title);
             convertView.setTag(viewHolder);
+            TypefaceHelper.typeface(convertView);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }

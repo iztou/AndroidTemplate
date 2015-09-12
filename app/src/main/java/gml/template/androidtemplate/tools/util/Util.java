@@ -1,4 +1,4 @@
-package gml.template.androidtemplate;
+package gml.template.androidtemplate.tools.util;
 
 import android.content.ContentResolver;
 import android.content.Context;

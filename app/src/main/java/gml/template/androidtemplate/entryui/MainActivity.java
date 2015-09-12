@@ -12,6 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.norbsoft.typefacehelper.TypefaceHelper;
+
 import java.util.ArrayList;
 
 import gml.template.androidtemplate.EventBus1;
@@ -26,6 +28,7 @@ import gml.template.androidtemplate.ScrollerActicity;
 import gml.template.androidtemplate.SwipeLayoutActivity;
 import gml.template.androidtemplate.SwipeOtherActivity;
 import gml.template.androidtemplate.TestGridLayoutActivity;
+import gml.template.androidtemplate.encrypt.Base64Activity;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener{
 
@@ -38,6 +41,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         //60000 倒计时60秒 间隔 1秒
 //        MyCountTimer myCountTimer = new MyCountTimer(10000,1000);
 //        myCountTimer.start();
+//        TypefaceHelper.typeface(this);
         initView();
         fillData();
     }
@@ -67,6 +71,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         itemsArrayList.add(ModelItems.createNewInstance("TabFragment 测试", FragmentTabActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GridLayout测试", TestGridLayoutActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
         modelAdapter.setModelItemses(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }
