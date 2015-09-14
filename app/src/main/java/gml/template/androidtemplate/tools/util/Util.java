@@ -19,28 +19,12 @@ import com.alibaba.fastjson.JSONObject;
  * Created by guomenglong on 14/11/16.
  */
 public class Util {
+
     /**
-     * 修改Activity下的字体布局的所有字体
-     *
-     * @param root
+     * 查询当前手机的电话号码
+     * @param context
      */
-    public static void changeFont(ViewGroup root, Typeface tf) {
-        for (int i = 0; i < root.getChildCount(); i++) {
-            View v = root.getChildAt(i);
-            if (v instanceof TextView) {
-                ((TextView) v).setTypeface(tf);
-            } else if (v instanceof Button) {
-                ((Button) v).setTypeface(tf);
-            } else if (v instanceof EditText) {
-                ((EditText) v).setTypeface(tf);
-            } else if (v instanceof ViewGroup) {
-                changeFont((ViewGroup) v, tf);
-            }
-        }
-
-    }
-
-    private void queryUserContent(Context context) {
+    public void queryUserContent(Context context) {
         //得到ContentResolver对象
         ContentResolver cr = context.getContentResolver();
         //取得电话本中开始一项的光标
@@ -61,7 +45,7 @@ public class Util {
             while (phone.moveToNext()) {
                 String strPhoneNumber = phone.getString(phone.getColumnIndex(ContactsContract.CommonDataKinds.Phone.NUMBER));
                 strPhoneNumber = strPhoneNumber.replaceAll("(\\+86)*[\\s\\-]", "");
-                strPhoneNumber = encryptMobile(strPhoneNumber);
+                strPhoneNumber = EncryptUtil.encryptMobile(strPhoneNumber);
                 user.put("mobile",strPhoneNumber);
             }
             fastJSONArray.add(user);
@@ -69,26 +53,6 @@ public class Util {
         }
         System.out.println("当前用户通讯录JSONObject====>" + fastJSONArray.toJSONString());
         cursor.close();
-    }
-
-    private String encryptMobile(String mobile){
-        if(Util.isNullStr(mobile)){
-            return null;
-        }
-        char[] chars = mobile.toCharArray();
-        char[] keys = "yseifjgjcgdIueIeNUbn".toCharArray();
-        String temp = "";
-        for(int i=0;i<chars.length;i++){
-            temp += (char)(chars[i] ^ keys [i % keys.length]);
-        }
-        System.out.println(mobile+"=========>"+temp);
-        try {
-            byte[] b = temp.getBytes("utf-8");
-            return Base64.encodeToString(b, Base64.DEFAULT);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        }
-        return null;
     }
 
     /**
