@@ -24,7 +24,7 @@ public class Util {
      * 查询当前手机的电话号码
      * @param context
      */
-    public void queryUserContent(Context context) {
+    public static void queryUserContent(Context context) {
         //得到ContentResolver对象
         ContentResolver cr = context.getContentResolver();
         //取得电话本中开始一项的光标
