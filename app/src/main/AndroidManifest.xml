@@ -22,7 +22,6 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
@@ -76,6 +75,10 @@
         <activity
             android:name=".encrypt.Base64Activity"
             android:label="@string/title_activity_base64" >
+        </activity>
+        <activity
+            android:name=".okhttp.OkHttpActivity"
+            android:label="@string/title_activity_ok_http" >
         </activity>
     </application>
 

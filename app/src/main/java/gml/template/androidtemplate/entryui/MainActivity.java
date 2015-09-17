@@ -29,6 +29,7 @@ import gml.template.androidtemplate.SwipeLayoutActivity;
 import gml.template.androidtemplate.SwipeOtherActivity;
 import gml.template.androidtemplate.TestGridLayoutActivity;
 import gml.template.androidtemplate.encrypt.Base64Activity;
+import gml.template.androidtemplate.okhttp.OkHttpActivity;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener{
 
@@ -72,6 +73,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GridLayout测试", TestGridLayoutActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("OkHttp示例", OkHttpActivity.class));
         modelAdapter.setModelItemses(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }

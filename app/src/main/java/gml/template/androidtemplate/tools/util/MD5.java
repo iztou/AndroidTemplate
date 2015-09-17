@@ -37,14 +37,14 @@ public class MD5 {
     }
 
     public static void main(String args[]) {
-        System.out.println(encode("aʯ��ׯ"));
+        System.out.println(encode("a石家庄"));
         try {
-            String s = "������֣�";
+            String s = "新年快乐！";
 
-            char[] chars = s.toCharArray(); // ���ַ���ת��Ϊ�ַ�����
+            char[] chars = s.toCharArray(); // 把字符中转换为字符数组
 
-            System.out.println("\n\n���� ASCII\n----------------------");
-            for (int i = 0; i < chars.length; i++) {// 输出结果
+            System.out.println("\n\n汉字 ASCII\n----------------------");
+            for (int i = 0; i < chars.length; i++) {// 杈撳嚭缁撴灉
 
                 System.out.println(" " + chars[i] + " " + (int) chars[i]);
             }
@@ -55,7 +55,7 @@ public class MD5 {
     }
 
     /**
-     * 登录注册时用,缓存名称加密
+     * 鐧诲綍娉ㄥ唽鏃剁敤,缂撳瓨鍚嶇О鍔犲瘑
      *
      * @param sourceStr
      * @return
