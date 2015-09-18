@@ -18,7 +18,9 @@
             android:id="@+id/fetch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Fetch"/>
+            android:gravity="center"
+            android:text="Fetch"
+            android:background="@drawable/bluesharp"/>
     </LinearLayout>
 
     <TextView
