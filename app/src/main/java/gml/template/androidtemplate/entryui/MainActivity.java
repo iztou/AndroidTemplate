@@ -73,7 +73,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GridLayout测试", TestGridLayoutActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("OkHttp示例", OkHttpActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
         modelAdapter.setModelItemses(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }
