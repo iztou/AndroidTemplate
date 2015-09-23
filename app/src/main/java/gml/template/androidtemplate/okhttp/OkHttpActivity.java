@@ -97,14 +97,7 @@ public class OkHttpActivity extends AppCompatActivity implements AdapterView.OnI
      * 下载文件
      */
     private void download() {
-        final DownloadRequest downloadRequest = new DownloadRequest("http://www.ycpai.com/statics/android/app-ycpai-release_YCPAI_sign.apk", null, new Response.ProgressListener() {
-            @Override
-            public void onProgress(long transferredBytes, long totalSize) {
-                if (progress.getMax() == 100)
-                    progress.setMax((int) totalSize);
-                progress.setProgress((int) transferredBytes);
-            }
-        }, new Response.Listener<String>() {
+        final DownloadRequest downloadRequest = new DownloadRequest("http://www.ycpai.com/statics/android/app-ycpai-release_YCPAI_sign.apk", new Response.Listener<String>() {
             @Override
             public void onResponse(String response) {
                 Snackbar.make(content,"文件下载完成",Snackbar.LENGTH_LONG).show();
@@ -113,6 +106,14 @@ public class OkHttpActivity extends AppCompatActivity implements AdapterView.OnI
             @Override
             public void onErrorResponse(VolleyError error) {
                 Snackbar.make(content,"文件下载失败",Snackbar.LENGTH_LONG).show();
+            }
+        });
+        downloadRequest.setOnProgressListener(new Response.ProgressListener() {
+            @Override
+            public void onProgress(long transferredBytes, long totalSize) {
+                if (progress.getMax() == 100)
+                    progress.setMax((int) totalSize);
+                progress.setProgress((int) transferredBytes);
             }
         });
         requestQueue.add(downloadRequest);
