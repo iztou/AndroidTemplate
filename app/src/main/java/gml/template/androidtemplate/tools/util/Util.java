@@ -1,9 +1,13 @@
 package gml.template.androidtemplate.tools.util;
 
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
 import android.provider.ContactsContract;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -103,10 +107,11 @@ public class Util {
 
     /**
      * 通过反射设置某个类的字段可见
+     *
      * @param clazz
      * @param fieldName
      */
-    public static void setFieldVisible(Class<?> clazz,String fieldName){
+    public static void setFieldVisible(Class<?> clazz, String fieldName) {
         try {
             Field field = clazz.getField(fieldName);
             field.setAccessible(true);
@@ -115,4 +120,41 @@ public class Util {
         }
     }
 
+    /**
+     * 隐藏虚拟键盘
+     * @param activity  想要隐藏的Activity
+     */
+    public static void hideInputKeyBoard(Activity activity) {
+        View currentFocus = activity.getCurrentFocus();
+        if (currentFocus != null) {
+            InputMethodManager imm = (InputMethodManager) activity.getSystemService(Context.INPUT_METHOD_SERVICE);
+            imm.hideSoftInputFromWindow(currentFocus.getWindowToken(), 0);
+        }
+    }
+
+
+    /**
+     * 当键盘显示以后
+     * @param activity
+     * @param rootid
+     * @param callBack
+     */
+    public  static void checkKeyBoardVisible(Activity activity,int rootid,KeyBoardVisibleCallBack callBack){
+        final View activityRootView = activity.findViewById(rootid);
+        activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
+                if (heightDiff > 100) { // if more than 100 pixels, its probably a keyboard...
+                }
+            }
+        });
+    }
+
+    /**
+     * 键盘显示后调用接口
+     */
+    public interface KeyBoardVisibleCallBack{
+        void changed();
+    }
 }
