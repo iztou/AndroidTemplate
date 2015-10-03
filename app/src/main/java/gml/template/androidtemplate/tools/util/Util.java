@@ -139,13 +139,14 @@ public class Util {
      * @param rootid
      * @param callBack
      */
-    public  static void checkKeyBoardVisible(Activity activity,int rootid,KeyBoardVisibleCallBack callBack){
+    public  static void checkKeyBoardVisible(Activity activity,int rootid,final KeyBoardVisibleCallBack callBack){
         final View activityRootView = activity.findViewById(rootid);
         activityRootView.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
             @Override
             public void onGlobalLayout() {
                 int heightDiff = activityRootView.getRootView().getHeight() - activityRootView.getHeight();
                 if (heightDiff > 100) { // if more than 100 pixels, its probably a keyboard...
+                    callBack.changed();
                 }
             }
         });
