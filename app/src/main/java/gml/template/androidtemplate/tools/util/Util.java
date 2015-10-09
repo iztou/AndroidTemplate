@@ -4,7 +4,11 @@ import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.database.Cursor;
+import android.net.wifi.WifiInfo;
+import android.net.wifi.WifiManager;
 import android.provider.ContactsContract;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
 import android.view.View;
 import android.view.ViewTreeObserver;
 import android.view.inputmethod.InputMethodManager;
@@ -13,11 +17,14 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 
 import java.lang.reflect.Field;
+import java.util.Locale;
 
 /**
  * Created by guomenglong on 14/11/16.
  */
 public class Util {
+
+    private static String mDeviceImei;
 
     /**
      * 查询当前手机的电话号码
@@ -149,6 +156,32 @@ public class Util {
                 }
             }
         });
+    }
+
+    /**
+     * 获取imei,如果获取不到，则生成一个15位号码
+     *
+     * @return 获取imei,如果获取不到，则生成一个15位号码
+     */
+    public static String getImei(final Context context) {
+        if (!TextUtils.isEmpty(mDeviceImei)) {
+            return mDeviceImei;
+        }
+
+        TelephonyManager tm = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        String imei;
+
+        try {
+            imei = tm.getDeviceId();// imei
+        } catch (Exception e) {
+            imei = null;
+        }
+
+        // 　(ly) 转为小写
+        if (imei != null) {
+            mDeviceImei = imei = imei.toLowerCase(Locale.US);
+        }
+        return imei;
     }
 
     /**
