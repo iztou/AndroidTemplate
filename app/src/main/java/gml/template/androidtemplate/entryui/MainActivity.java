@@ -30,6 +30,7 @@ import gml.template.androidtemplate.SwipeOtherActivity;
 import gml.template.androidtemplate.TestGridLayoutActivity;
 import gml.template.androidtemplate.encrypt.Base64Activity;
 import gml.template.androidtemplate.okhttp.OkHttpActivity;
+import gml.template.androidtemplate.pagerslidingtab.PageSlidingTabActivity;
 
 public class MainActivity extends Activity implements AdapterView.OnItemClickListener{
 
@@ -74,6 +75,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         itemsArrayList.add(ModelItems.createNewInstance("GridLayout测试", TestGridLayoutActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
         modelAdapter.setModelItemses(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }
