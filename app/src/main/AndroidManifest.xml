@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="gml.template.androidtemplate" >
+    package="gml.template.androidtemplate">
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -29,11 +29,11 @@
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/CustomActionBarTheme" >
+        android:theme="@style/CustomActionBarTheme">
         <activity
             android:name=".entryui.MainActivity"
             android:label="@string/app_name"
-            android:uiOptions="splitActionBarWhenNarrow" >
+            android:uiOptions="splitActionBarWhenNarrow">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,8 +52,7 @@
             android:name=".SwipeLayoutActivity"
             android:label="主界面"
             android:parentActivityName=".entryui.MainActivity"
-            android:theme="@style/CustomActionBarOverlay" >
-        </activity>
+            android:theme="@style/CustomActionBarOverlay"></activity>
         <activity android:name=".SwipeOtherActivity" />
         <activity android:name=".MyScrollActicity" />
         <activity android:name=".ScrollerActicity" />
@@ -70,17 +69,15 @@
             android:name=".FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" >
-        </activity>
+            android:theme="@style/FullscreenTheme"></activity>
         <activity
             android:name=".encrypt.Base64Activity"
-            android:label="@string/title_activity_base64" >
-        </activity>
+            android:label="@string/title_activity_base64"></activity>
         <activity
             android:name=".okhttp.OkHttpActivity"
             android:label="@string/title_activity_ok_http"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".pagerslidingtab.PageSlidingTabActivity"></activity>
     </application>
 
 </manifest>
