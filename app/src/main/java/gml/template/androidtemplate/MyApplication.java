@@ -17,7 +17,6 @@ import com.squareup.leakcanary.LeakCanary;
 public class MyApplication extends Application {
     private static RequestQueue requestQueue;
     private static Application instance;
-    public static Context strongReference;
     @Override
     public void onCreate() {
         super.onCreate();
