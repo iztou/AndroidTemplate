@@ -12,22 +12,20 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.norbsoft.typefacehelper.TypefaceHelper;
-
 import java.util.ArrayList;
 
-import gml.template.androidtemplate.EventBus1;
-import gml.template.androidtemplate.FragmentTabActivity;
-import gml.template.androidtemplate.FragmentTestActicity;
-import gml.template.androidtemplate.FullscreenActivity;
-import gml.template.androidtemplate.MyScrollActicity;
-import gml.template.androidtemplate.PictureSelectorActivity;
+import gml.template.androidtemplate.activity.EventBus1;
+import gml.template.androidtemplate.activity.FragmentTabActivity;
+import gml.template.androidtemplate.activity.FragmentTestActicity;
+import gml.template.androidtemplate.activity.FullscreenActivity;
+import gml.template.androidtemplate.activity.MyScrollActicity;
+import gml.template.androidtemplate.activity.PictureSelectorActivity;
 import gml.template.androidtemplate.R;
-import gml.template.androidtemplate.RxJavaActivity;
-import gml.template.androidtemplate.ScrollerActicity;
-import gml.template.androidtemplate.SwipeLayoutActivity;
-import gml.template.androidtemplate.SwipeOtherActivity;
-import gml.template.androidtemplate.TestGridLayoutActivity;
+import gml.template.androidtemplate.activity.RxJavaActivity;
+import gml.template.androidtemplate.activity.ScrollerActicity;
+import gml.template.androidtemplate.activity.SwipeLayoutActivity;
+import gml.template.androidtemplate.activity.SwipeOtherActivity;
+import gml.template.androidtemplate.activity.TestGridLayoutActivity;
 import gml.template.androidtemplate.encrypt.Base64Activity;
 import gml.template.androidtemplate.okhttp.OkHttpActivity;
 import gml.template.androidtemplate.pagerslidingtab.PageSlidingTabActivity;

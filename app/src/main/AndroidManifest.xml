@@ -41,7 +41,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ViewPagerActivity"
+            android:name=".activity.ViewPagerActivity"
             android:launchMode="standard" />
 
         <meta-data
@@ -49,24 +49,24 @@
             android:value="5233dc8f56240bb39204dbfe" />
 
         <activity
-            android:name=".SwipeLayoutActivity"
+            android:name=".activity.SwipeLayoutActivity"
             android:label="主界面"
             android:parentActivityName=".entryui.MainActivity"
             android:theme="@style/CustomActionBarOverlay"></activity>
-        <activity android:name=".SwipeOtherActivity" />
-        <activity android:name=".MyScrollActicity" />
-        <activity android:name=".ScrollerActicity" />
-        <activity android:name=".EventBus1" />
-        <activity android:name=".EventBus2" />
-        <activity android:name=".RxJavaActivity" />
-        <activity android:name=".FragmentTabActivity" />
-        <activity android:name=".PictureSelectorActivity" />
-        <activity android:name=".TestGridLayoutActivity" />
+        <activity android:name=".activity.SwipeOtherActivity" />
+        <activity android:name=".activity.MyScrollActicity" />
+        <activity android:name=".activity.ScrollerActicity" />
+        <activity android:name=".activity.EventBus1" />
+        <activity android:name=".activity.EventBus2" />
+        <activity android:name=".activity.RxJavaActivity" />
+        <activity android:name=".activity.FragmentTabActivity" />
+        <activity android:name=".activity.PictureSelectorActivity" />
+        <activity android:name=".activity.TestGridLayoutActivity" />
         <activity
-            android:name=".FragmentTestActicity"
+            android:name=".activity.FragmentTestActicity"
             android:configChanges="orientation" />
         <activity
-            android:name=".FullscreenActivity"
+            android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
             android:theme="@style/FullscreenTheme"></activity>

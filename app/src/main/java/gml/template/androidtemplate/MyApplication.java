@@ -1,7 +1,6 @@
 package gml.template.androidtemplate;
 
 import android.app.Application;
-import android.content.Context;
 import android.graphics.Typeface;
 
 import com.android.volley.RequestQueue;
@@ -9,6 +8,8 @@ import com.android.volley.toolbox.Volley;
 import com.norbsoft.typefacehelper.TypefaceCollection;
 import com.norbsoft.typefacehelper.TypefaceHelper;
 import com.squareup.leakcanary.LeakCanary;
+
+import gml.template.androidtemplate.tools.util.AppConstants;
 
 /**
  * Application

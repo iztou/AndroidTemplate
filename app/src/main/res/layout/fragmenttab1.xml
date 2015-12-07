@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <gml.template.androidtemplate.SwipeLayout
+    <gml.template.androidtemplate.view.SwipeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
         <ImageView
@@ -21,7 +21,7 @@
             android:layout_height="100dp"
             android:background="#669900"
             android:onClick="hideActionBar"/>
-    </gml.template.androidtemplate.SwipeLayout>
+    </gml.template.androidtemplate.view.SwipeLayout>
     <TextView
         android:id="@+id/tab1"
         android:layout_width="match_parent"
