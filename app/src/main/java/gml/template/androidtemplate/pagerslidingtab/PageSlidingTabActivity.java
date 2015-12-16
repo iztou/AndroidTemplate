@@ -8,7 +8,6 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.text.SpannableStringBuilder;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -22,7 +21,6 @@ import com.squareup.phrase.Phrase;
 import java.util.ArrayList;
 import java.util.List;
 
-import gml.template.androidtemplate.MyApplication;
 import gml.template.androidtemplate.R;
 import gml.template.androidtemplate.util.ColorPhrase;
 
@@ -57,9 +55,11 @@ public class PageSlidingTabActivity extends Activity implements LocationListener
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
         locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
         Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        latitude = location.getLatitude();     //经度
-        longitude = location.getLongitude(); //纬度
-        altitude =  location.getAltitude();     //海拔
+        if (location != null) {
+            latitude = location.getLatitude();     //经度
+            longitude = location.getLongitude(); //纬度
+            altitude = location.getAltitude();     //海拔
+        }
     }
 
     @Override

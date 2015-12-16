@@ -9,8 +9,11 @@ import android.widget.Toast;
 
 import gml.template.androidtemplate.R;
 import rx.Observable;
+import rx.Scheduler;
 import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by guomenglong on 15/3/19.
@@ -45,11 +48,11 @@ public class RxJavaActivity extends Activity {
 
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext(String.valueOf(Build.VERSION.SDK_INT));
-                subscriber.onNext(String.valueOf(Build.VERSION.RELEASE));
+                subscriber.onNext(" SDK="+Build.VERSION.SDK_INT);
+                subscriber.onNext(" Release="+Build.VERSION.RELEASE);
                 subscriber.onCompleted();
             }
-        }).subscribe(new Action1<String>() {
+        }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<String>() {
             @Override
             public void call(String s) {
                 show.append(s);
