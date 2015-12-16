@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import gml.template.androidtemplate.R;
 import rx.Observable;
+import rx.Subscriber;
 import rx.functions.Action1;
 
 /**
@@ -30,20 +31,29 @@ public class RxJavaActivity extends Activity {
      */
     public void begin(View view){
         hello(Build.VERSION.SDK_INT+"",Build.VERSION.RELEASE,"测试");
-//        show.setText(Build.VERSION.SDK_INT+" "+Build.VERSION.RELEASE+" "+"测试");
         Toast.makeText(this,Build.VERSION.SDK_INT+" "+Build.VERSION.RELEASE+" "+"测试",Toast.LENGTH_LONG).show();
     }
 
     public void hello(String... names) {
         Observable.from(names).skip(1).subscribe(new Action1<String>() {
-
             @Override
             public void call(String s) {
-//                show.setText(show.getEditableText()+s);
-//                show.setText(s);
+
+            }
+        });
+        Observable.create(new Observable.OnSubscribe<String>(){
+
+            @Override
+            public void call(Subscriber<? super String> subscriber) {
+                subscriber.onNext(String.valueOf(Build.VERSION.SDK_INT));
+                subscriber.onNext(String.valueOf(Build.VERSION.RELEASE));
+                subscriber.onCompleted();
+            }
+        }).subscribe(new Action1<String>() {
+            @Override
+            public void call(String s) {
                 show.append(s);
             }
-
         });
     }
 }
