@@ -8,12 +8,12 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import java.util.ArrayList;
 
 import gml.template.androidtemplate.R;
 import rx.Observable;
 import rx.Observer;
-import rx.Scheduler;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
@@ -37,10 +37,11 @@ public class RxJavaActivity extends Activity {
 
     /**
      * 开始测试RxJava
+     *
      * @param view
      */
-    public void begin(View view){
-        hello(Build.VERSION.SDK_INT+"",Build.VERSION.RELEASE,"测试");
+    public void begin(View view) {
+        hello(Build.VERSION.SDK_INT + "", Build.VERSION.RELEASE, "测试");
     }
 
     public void hello(String... names) {
@@ -50,12 +51,12 @@ public class RxJavaActivity extends Activity {
 
             }
         });
-        Observable.create(new Observable.OnSubscribe<String>(){
+        Observable.create(new Observable.OnSubscribe<String>() {
 
             @Override
             public void call(Subscriber<? super String> subscriber) {
-                subscriber.onNext(" SDK="+Build.VERSION.SDK_INT);
-                subscriber.onNext(" Release="+Build.VERSION.RELEASE);
+                subscriber.onNext(" SDK=" + Build.VERSION.SDK_INT);
+                subscriber.onNext(" Release=" + Build.VERSION.RELEASE);
                 subscriber.onCompleted();
             }
         }).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Observer<String>() {
@@ -77,12 +78,36 @@ public class RxJavaActivity extends Activity {
         Observable.just(R.drawable.ic_launcher).map(new Func1<Integer, Bitmap>() {
             @Override
             public Bitmap call(Integer resId) {
-                return BitmapFactory.decodeResource(getResources(),resId);
+                return BitmapFactory.decodeResource(getResources(), resId);
             }
         }).subscribe(new Action1<Bitmap>() {
             @Override
             public void call(Bitmap bitmap) {
                 icon.setImageBitmap(bitmap);
+            }
+        });
+        ArrayList<String>[] array = new ArrayList[5];
+        for (int i = 0; i < 5; i++) {
+            ArrayList<String> arrayList = new ArrayList<>();
+            for (int j = 0; j <= i; j++) {
+                arrayList.add(String.valueOf(j));
+            }
+            array[i] = arrayList;
+        }
+        Observable.from(array).flatMap(new Func1<ArrayList<String>, Observable<String>>() {
+            @Override
+            public Observable<String> call(ArrayList<String> strings) {
+                return Observable.from(strings.toArray(new String[0]));
+            }
+        }).flatMap(new Func1<String, Observable<String>>() {
+            @Override
+            public Observable<String> call(String s) {
+                return Observable.just("序列=>" + s);
+            }
+        }).subscribe(new Action1<String>() {
+            @Override
+            public void call(String s) {
+                show.append(s);
             }
         });
     }
