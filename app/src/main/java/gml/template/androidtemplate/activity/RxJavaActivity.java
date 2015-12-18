@@ -6,11 +6,14 @@ import android.graphics.BitmapFactory;
 import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import gml.template.androidtemplate.R;
 import rx.Observable;
 import rx.Observer;
@@ -24,15 +27,19 @@ import rx.schedulers.Schedulers;
  * Created by guomenglong on 15/3/19.
  */
 public class RxJavaActivity extends Activity {
-    private TextView show;
-    private ImageView icon;
+
+    @Bind(R.id.showRxMsg)
+    TextView show;
+    @Bind(R.id.icon)
+    ImageView icon;
+    @Bind(R.id.singleView)
+    FrameLayout singleView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.rxjavatest);
-        show = (TextView) findViewById(R.id.showRxMsg);
-        icon = (ImageView) findViewById(R.id.icon);
+        ButterKnife.bind(this);
     }
 
     /**
