@@ -44,4 +44,7 @@ Thumbs.db
 .idea
 #.idea/workspace.xml - remove # and delete .idea if it better suit your needs.
 */build/
-*.iml
+AndroidTemplate.iml
+app.iml
+volley.iml
+Customize-Volley.iml
