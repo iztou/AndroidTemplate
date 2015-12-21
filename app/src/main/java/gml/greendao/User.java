@@ -8,8 +8,8 @@ public class User {
 
     private Long id;
     /** Not-null value. */
-    private java.util.Date username;
-    private java.util.Date password;
+    private String username;
+    private String password;
     private Long createtime;
     private String remark;
 
@@ -20,7 +20,7 @@ public class User {
         this.id = id;
     }
 
-    public User(Long id, java.util.Date username, java.util.Date password, Long createtime, String remark) {
+    public User(Long id, String username, String password, Long createtime, String remark) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -37,20 +37,20 @@ public class User {
     }
 
     /** Not-null value. */
-    public java.util.Date getUsername() {
+    public String getUsername() {
         return username;
     }
 
     /** Not-null value; ensure this value is available before it is saved to the database. */
-    public void setUsername(java.util.Date username) {
+    public void setUsername(String username) {
         this.username = username;
     }
 
-    public java.util.Date getPassword() {
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(java.util.Date password) {
+    public void setPassword(String password) {
         this.password = password;
     }
 

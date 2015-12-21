@@ -18,6 +18,7 @@ import gml.template.androidtemplate.activity.EventBus1;
 import gml.template.androidtemplate.activity.FragmentTabActivity;
 import gml.template.androidtemplate.activity.FragmentTestActicity;
 import gml.template.androidtemplate.activity.FullscreenActivity;
+import gml.template.androidtemplate.activity.GreenDaoActivity;
 import gml.template.androidtemplate.activity.MyScrollActicity;
 import gml.template.androidtemplate.activity.PictureSelectorActivity;
 import gml.template.androidtemplate.R;
@@ -74,6 +75,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
         modelAdapter.setModelItemses(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }

@@ -52,7 +52,7 @@
             android:name=".activity.SwipeLayoutActivity"
             android:label="主界面"
             android:parentActivityName=".entryui.MainActivity"
-            android:theme="@style/CustomActionBarOverlay"></activity>
+            android:theme="@style/CustomActionBarOverlay" />
         <activity android:name=".activity.SwipeOtherActivity" />
         <activity android:name=".activity.MyScrollActicity" />
         <activity android:name=".activity.ScrollerActicity" />
@@ -69,15 +69,16 @@
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme"></activity>
+            android:theme="@style/FullscreenTheme" />
         <activity
             android:name=".encrypt.Base64Activity"
-            android:label="@string/title_activity_base64"></activity>
+            android:label="@string/title_activity_base64" />
         <activity
             android:name=".okhttp.OkHttpActivity"
             android:label="@string/title_activity_ok_http"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
-        <activity android:name=".pagerslidingtab.PageSlidingTabActivity"></activity>
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".pagerslidingtab.PageSlidingTabActivity" />
+        <activity android:name=".activity.GreenDaoActivity"></activity>
     </application>
 
 </manifest>

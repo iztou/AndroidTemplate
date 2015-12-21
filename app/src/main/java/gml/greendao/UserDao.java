@@ -24,8 +24,8 @@ public class UserDao extends AbstractDao<User, Long> {
     */
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
-        public final static Property Username = new Property(1, java.util.Date.class, "username", false, "USERNAME");
-        public final static Property Password = new Property(2, java.util.Date.class, "password", false, "PASSWORD");
+        public final static Property Username = new Property(1, String.class, "username", false, "USERNAME");
+        public final static Property Password = new Property(2, String.class, "password", false, "PASSWORD");
         public final static Property Createtime = new Property(3, Long.class, "createtime", false, "CREATETIME");
         public final static Property Remark = new Property(4, String.class, "remark", false, "REMARK");
     };
@@ -43,9 +43,9 @@ public class UserDao extends AbstractDao<User, Long> {
     public static void createTable(SQLiteDatabase db, boolean ifNotExists) {
         String constraint = ifNotExists? "IF NOT EXISTS ": "";
         db.execSQL("CREATE TABLE " + constraint + "'USER' (" + //
-                "'_id' INTEGER PRIMARY KEY ," + // 0: id
-                "'USERNAME' INTEGER NOT NULL ," + // 1: username
-                "'PASSWORD' INTEGER," + // 2: password
+                "'_id' INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
+                "'USERNAME' TEXT NOT NULL ," + // 1: username
+                "'PASSWORD' TEXT," + // 2: password
                 "'CREATETIME' INTEGER," + // 3: createtime
                 "'REMARK' TEXT);"); // 4: remark
     }
@@ -65,11 +65,11 @@ public class UserDao extends AbstractDao<User, Long> {
         if (id != null) {
             stmt.bindLong(1, id);
         }
-        stmt.bindLong(2, entity.getUsername().getTime());
+        stmt.bindString(2, entity.getUsername());
  
-        java.util.Date password = entity.getPassword();
+        String password = entity.getPassword();
         if (password != null) {
-            stmt.bindLong(3, password.getTime());
+            stmt.bindString(3, password);
         }
  
         Long createtime = entity.getCreatetime();
@@ -94,8 +94,8 @@ public class UserDao extends AbstractDao<User, Long> {
     public User readEntity(Cursor cursor, int offset) {
         User entity = new User( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
-            new java.util.Date(cursor.getLong(offset + 1)), // username
-            cursor.isNull(offset + 2) ? null : new java.util.Date(cursor.getLong(offset + 2)), // password
+            cursor.getString(offset + 1), // username
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // password
             cursor.isNull(offset + 3) ? null : cursor.getLong(offset + 3), // createtime
             cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4) // remark
         );
@@ -106,8 +106,8 @@ public class UserDao extends AbstractDao<User, Long> {
     @Override
     public void readEntity(Cursor cursor, User entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
-        entity.setUsername(new java.util.Date(cursor.getLong(offset + 1)));
-        entity.setPassword(cursor.isNull(offset + 2) ? null : new java.util.Date(cursor.getLong(offset + 2)));
+        entity.setUsername(cursor.getString(offset + 1));
+        entity.setPassword(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
         entity.setCreatetime(cursor.isNull(offset + 3) ? null : cursor.getLong(offset + 3));
         entity.setRemark(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
      }

@@ -16,9 +16,9 @@ public class TableGenerator {
 
     private static void addUser(Schema schema){
         Entity user = schema.addEntity("User");
-        user.addIdProperty();
-        user.addDateProperty("username").notNull();    // 开始时间
-        user.addDateProperty("password");      // 结束时间
+        user.addIdProperty().autoincrement();
+        user.addStringProperty("username").notNull();    // 开始时间
+        user.addStringProperty("password");      // 结束时间
         user.addLongProperty("createtime");      // 循环间隔时间
         user.addStringProperty("remark");    // 通知内容
     }
