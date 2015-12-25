@@ -1,58 +1,31 @@
-package gml.template.androidtemplate.entryui;
+package gml.template.androidtemplate.activity;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
 
-import gml.template.androidtemplate.activity.EventBus1;
-import gml.template.androidtemplate.activity.FragmentTabActivity;
-import gml.template.androidtemplate.activity.FragmentTestActicity;
-import gml.template.androidtemplate.activity.FullscreenActivity;
-import gml.template.androidtemplate.activity.GreenDaoActivity;
-import gml.template.androidtemplate.activity.MyScrollActicity;
-import gml.template.androidtemplate.activity.PictureSelectorActivity;
+import butterknife.Bind;
+import butterknife.OnItemClick;
 import gml.template.androidtemplate.R;
-import gml.template.androidtemplate.activity.RxJavaActivity;
-import gml.template.androidtemplate.activity.ScrollerActicity;
-import gml.template.androidtemplate.activity.SwipeLayoutActivity;
-import gml.template.androidtemplate.activity.SwipeOtherActivity;
-import gml.template.androidtemplate.activity.TestGridLayoutActivity;
-import gml.template.androidtemplate.encrypt.Base64Activity;
-import gml.template.androidtemplate.okhttp.OkHttpActivity;
-import gml.template.androidtemplate.pagerslidingtab.PageSlidingTabActivity;
+import gml.template.androidtemplate.adapter.ModelAdapter;
+import gml.template.androidtemplate.adapter.ModelItems;
 
-public class MainActivity extends Activity implements AdapterView.OnItemClickListener{
+public class MainActivity extends BaseActivity{
 
-    private ListView entryList; //入口界面ListView
+    @Bind(R.id.entryList)
+    ListView entryList; //入口界面ListView
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //60000 倒计时60秒 间隔 1秒
-//        MyCountTimer myCountTimer = new MyCountTimer(10000,1000);
-//        myCountTimer.start();
-//        TypefaceHelper.typeface(this);
-        initView();
         fillData();
-    }
-
-    /**
-     * 初始化界面
-     */
-    private void initView(){
-        entryList = (ListView)findViewById(R.id.entryList);
-        entryList.setOnItemClickListener(this);
     }
 
     /**
@@ -76,7 +49,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
-        modelAdapter.setModelItemses(itemsArrayList.toArray(new ModelItems[0]));
+        modelAdapter.setModelItems(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }
 
@@ -100,35 +73,11 @@ public class MainActivity extends Activity implements AdapterView.OnItemClickLis
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        ModelItems modelItems = (ModelItems) parent.getAdapter().getItem(position);
+    @OnItemClick(R.id.entryList)
+    public void onItemClick(int position) {
+        ModelItems modelItems = (ModelItems) entryList.getAdapter().getItem(position);
         Intent intent = new Intent(this,modelItems.getActivity());
         startActivity(intent);
-    }
-
-    private class MyCountTimer extends CountDownTimer {
-
-        /**
-         * @param millisInFuture    The number of millis in the future from the call
-         *                          to {@link #start()} until the countdown is done and {@link #onFinish()}
-         *                          is called.
-         * @param countDownInterval The interval along the way to receive
-         *                          {@link #onTick(long)} callbacks.
-         */
-        public MyCountTimer(long millisInFuture, long countDownInterval) {
-            super(millisInFuture, countDownInterval);
-        }
-
-        @Override
-        public void onTick(long millisUntilFinished) {
-            System.out.println(millisUntilFinished / 1000);
-        }
-
-        @Override
-        public void onFinish() {
-            System.out.println("倒计时结束...");
-        }
     }
 
 }

@@ -1,4 +1,4 @@
-package gml.template.androidtemplate.entryui;
+package gml.template.androidtemplate.adapter;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,32 +9,34 @@ import android.widget.TextView;
 
 import com.norbsoft.typefacehelper.TypefaceHelper;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import gml.template.androidtemplate.R;
 
 /**
  * 入口界面功能模块Adapter
- * Created by 58 on 2015/9/11.
+ * Created by gml on 2015/9/11.
  */
 public class ModelAdapter extends BaseAdapter {
-    private ModelItems[] modelItemses = new ModelItems[0];
+    private ModelItems[] modelItems = new ModelItems[0];
     private Context context;
 
     public ModelAdapter(Context context) {
         this.context = context;
     }
 
-    public void setModelItemses(ModelItems[] modelItemses) {
-        this.modelItemses = modelItemses;
+    public void setModelItems(ModelItems[] modelItems) {
+        this.modelItems = modelItems;
     }
 
     @Override
     public int getCount() {
-        return modelItemses.length;
+        return modelItems.length;
     }
 
     @Override
     public Object getItem(int position) {
-        return modelItemses[position];
+        return modelItems[position];
     }
 
     @Override
@@ -47,19 +49,24 @@ public class ModelAdapter extends BaseAdapter {
         ViewHolder viewHolder = null;
         if (convertView == null) {
             viewHolder = new ViewHolder();
-            viewHolder.item = convertView = LayoutInflater.from(context).inflate(R.layout.activity_main_item, null);
-            viewHolder.title = (TextView) convertView.findViewById(R.id.title);
+            convertView = viewHolder.item;
             convertView.setTag(viewHolder);
             TypefaceHelper.typeface(convertView);
         } else {
             viewHolder = (ViewHolder) convertView.getTag();
         }
-        viewHolder.title.setText(modelItemses[position].getTitle());
+        viewHolder.title.setText(modelItems[position].getTitle());
         return convertView;
     }
 
     public class ViewHolder {
         public View item;
+        @Bind(R.id.title)
         public TextView title;
+
+        public ViewHolder(){
+            item = LayoutInflater.from(context).inflate(R.layout.activity_main_item, null);
+            ButterKnife.bind(this,item);
+        }
     }
 }

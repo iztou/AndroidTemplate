@@ -1,4 +1,4 @@
-package gml.template.androidtemplate.pagerslidingtab;
+package gml.template.androidtemplate.activity;
 
 import android.app.Activity;
 import android.content.Context;

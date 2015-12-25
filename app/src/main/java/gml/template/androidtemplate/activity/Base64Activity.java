@@ -1,4 +1,4 @@
-package gml.template.androidtemplate.encrypt;
+package gml.template.androidtemplate.activity;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -18,7 +18,7 @@ import gml.template.androidtemplate.tools.util.EncryptUtil;
 /**
  * 加密样例Activity
  */
-public class Base64Activity extends Activity implements View.OnClickListener{
+public class Base64Activity extends BaseActivity implements View.OnClickListener{
 
     private EditText inputText; //输入加密框
     private TextView afterEncrypt; //加密后结果
@@ -29,7 +29,6 @@ public class Base64Activity extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base64);
-        TypefaceHelper.typeface(this);
         initView();
     }
 

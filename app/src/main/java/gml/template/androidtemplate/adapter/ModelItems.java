@@ -1,4 +1,4 @@
-package gml.template.androidtemplate.entryui;
+package gml.template.androidtemplate.adapter;
 
 /**
  * ListView 列表item数据对象
