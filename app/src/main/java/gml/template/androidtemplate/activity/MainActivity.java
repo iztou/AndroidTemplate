@@ -37,7 +37,6 @@ public class MainActivity extends BaseActivity{
         itemsArrayList.add(ModelItems.createNewInstance("向左滑动删除", SwipeLayoutActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("滑动固定", MyScrollActicity.class));
         itemsArrayList.add(ModelItems.createNewInstance("测试滑动过程中并缩小", SwipeOtherActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("EventBus测试", EventBus1.class));
         itemsArrayList.add(ModelItems.createNewInstance("FragmentActivity测试", FragmentTestActicity.class));
         itemsArrayList.add(ModelItems.createNewInstance("RxJava测试", RxJavaActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Android Studio生成Activity测试", FullscreenActivity.class));

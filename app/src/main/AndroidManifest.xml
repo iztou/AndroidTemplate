@@ -55,8 +55,6 @@
             android:theme="@style/CustomActionBarOverlay" />
         <activity android:name=".activity.SwipeOtherActivity" />
         <activity android:name=".activity.MyScrollActicity" />
-        <activity android:name=".activity.EventBus1" />
-        <activity android:name=".activity.EventBus2" />
         <activity android:name=".activity.RxJavaActivity" />
         <activity android:name=".activity.FragmentTabActivity" />
         <activity android:name=".activity.PictureSelectorActivity" />
