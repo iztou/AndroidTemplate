@@ -1,0 +1,10 @@
+<resources>
+
+    <style name="AppTheme.ToolBar" parent="Base.V7.Theme.AppCompat.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:colorPrimaryDark">@android:color/holo_red_light</item>
+        <item name="actionMenuTextColor">@android:color/white</item>
+        <!--<item name="android:actionOverflowButtonStyle">@android:style/Widget.Material.Light.ActionBar</item>-->
+    </style>
+</resources>

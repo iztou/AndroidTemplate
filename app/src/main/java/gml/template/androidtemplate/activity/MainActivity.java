@@ -2,6 +2,7 @@ package gml.template.androidtemplate.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,33 +43,34 @@ public class MainActivity extends BaseActivity{
         itemsArrayList.add(ModelItems.createNewInstance("Android Studio生成Activity测试", FullscreenActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("TabFragment 测试", FragmentTabActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("GridLayout测试", TestGridLayoutActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
         modelAdapter.setModelItems(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
-    }
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                String msg = "";
+                switch (item.getItemId()) {
+                    case R.id.action_test1:
+                        msg += "Click test1";
+                        break;
+                    case R.id.action_test2:
+                        msg += "Click test2";
+                        break;
+                    case R.id.action_settings:
+                        msg += "Click setting";
+                        break;
+                }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater menuInflater = getMenuInflater();
-        menuInflater.inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()){
-            case R.id.action_settings:
-                Toast.makeText(this,"Setting_ICON",Toast.LENGTH_SHORT).show();
-                break;
-            case R.id.action_test1:
-                Toast.makeText(this,"Setting_TEST",Toast.LENGTH_SHORT).show();
-                break;
-        }
-        return super.onOptionsItemSelected(item);
+                if(!msg.equals("")) {
+                    Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            }
+        });
     }
 
     @OnItemClick(R.id.entryList)
