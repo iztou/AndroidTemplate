@@ -2,6 +2,7 @@ package gml.template.androidtemplate.activity;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
@@ -53,12 +54,15 @@ public class PageSlidingTabActivity extends Activity implements LocationListener
      */
     private void startLocationService() {
         LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
-        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-        if (location != null) {
-            latitude = location.getLatitude();     //经度
-            longitude = location.getLongitude(); //纬度
-            altitude = location.getAltitude();     //海拔
+        boolean permission = PackageManager.PERMISSION_GRANTED == getPackageManager().checkPermission("android.permission.ACCESS_FINE_LOCATION", "gml.template.androidtemplate");
+        if (permission) {
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
+            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+            if (location != null) {
+                latitude = location.getLatitude();     //经度
+                longitude = location.getLongitude(); //纬度
+                altitude = location.getAltitude();     //海拔
+            }
         }
     }
 

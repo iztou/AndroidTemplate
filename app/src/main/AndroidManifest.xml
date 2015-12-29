@@ -12,7 +12,6 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
@@ -49,11 +48,7 @@
         <activity android:name=".activity.SwipeOtherActivity" />
         <activity android:name=".activity.MyScrollActicity" />
         <activity android:name=".activity.RxJavaActivity" />
-        <activity android:name=".activity.FragmentTabActivity" />
         <activity android:name=".activity.PictureSelectorActivity" />
-        <activity
-            android:name=".activity.FragmentTestActicity"
-            android:configChanges="orientation" />
         <activity
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"

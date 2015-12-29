@@ -3,8 +3,7 @@ package gml.template.androidtemplate.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
-import android.view.Menu;
-import android.view.MenuInflater;
+import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -16,39 +15,32 @@ import butterknife.OnItemClick;
 import gml.template.androidtemplate.R;
 import gml.template.androidtemplate.adapter.ModelAdapter;
 import gml.template.androidtemplate.adapter.ModelItems;
+import in.srain.cube.views.ptr.PtrClassicFrameLayout;
+import in.srain.cube.views.ptr.PtrDefaultHandler;
+import in.srain.cube.views.ptr.PtrFrameLayout;
+import rx.Observable;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.schedulers.Schedulers;
 
-public class MainActivity extends BaseActivity{
+public class MainActivity extends BaseActivity {
 
     @Bind(R.id.entryList)
     ListView entryList; //入口界面ListView
+    @Bind(R.id.mainLayout)
+    PtrClassicFrameLayout pullToRefresh;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        pullToRefresh.setPullToRefresh(true);
         fillData();
+        initListener();
     }
 
-    /**
-     * 填充数据
-     */
-    private void fillData(){
-        ModelAdapter modelAdapter = new ModelAdapter(this);
-        ArrayList<ModelItems> itemsArrayList = new ArrayList<>();
-        itemsArrayList.add(ModelItems.createNewInstance("向左滑动删除", SwipeLayoutActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("滑动固定", MyScrollActicity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("测试滑动过程中并缩小", SwipeOtherActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("FragmentActivity测试", FragmentTestActicity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("RxJava测试", RxJavaActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("Android Studio生成Activity测试", FullscreenActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("TabFragment 测试", FragmentTabActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
-        modelAdapter.setModelItems(itemsArrayList.toArray(new ModelItems[0]));
-        entryList.setAdapter(modelAdapter);
+    private void initListener() {
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -65,18 +57,72 @@ public class MainActivity extends BaseActivity{
                         break;
                 }
 
-                if(!msg.equals("")) {
+                if (!msg.equals("")) {
                     Toast.makeText(MainActivity.this, msg, Toast.LENGTH_SHORT).show();
                 }
                 return true;
             }
         });
+        pullToRefresh.setPtrHandler(new PtrDefaultHandler() {
+            @Override
+            public void onRefreshBegin(PtrFrameLayout frame) {
+                Observable.create(new Observable.OnSubscribe<Integer>() {
+                    @Override
+                    public void call(Subscriber<? super Integer> subscriber) {
+                        int times = 10;
+                        long currentTime = System.currentTimeMillis();
+                        Log.d("当前线程",String.valueOf(Thread.currentThread()));
+                        while (true) {
+                            long dyTime = System.currentTimeMillis();
+                            if ((dyTime - currentTime) / 1000 == 1) {
+                                subscriber.onNext(times--);
+                                currentTime = dyTime;
+                                if (times == -1) {
+                                    subscriber.onCompleted();
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Integer>() {
+                    @Override
+                    public void call(Integer integer) {
+                        Log.d("当前线程",String.valueOf(Thread.currentThread()));
+                        Toast.makeText(MainActivity.this, String.valueOf(integer), Toast.LENGTH_SHORT).show();
+                        if (integer == 0) {
+                            pullToRefresh.refreshComplete();
+                        }
+                        Log.d("倒计时当前数字",String.valueOf(integer));
+                    }
+                });
+            }
+        });
+    }
+
+    /**
+     * 填充数据
+     */
+    private void fillData() {
+        ModelAdapter modelAdapter = new ModelAdapter(this);
+        ArrayList<ModelItems> itemsArrayList = new ArrayList<>();
+        itemsArrayList.add(ModelItems.createNewInstance("向左滑动删除", SwipeLayoutActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("滑动固定", MyScrollActicity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("测试滑动过程中并缩小", SwipeOtherActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("RxJava测试", RxJavaActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("Android Studio生成Activity测试", FullscreenActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
+        modelAdapter.setModelItems(itemsArrayList.toArray(new ModelItems[0]));
+        entryList.setAdapter(modelAdapter);
     }
 
     @OnItemClick(R.id.entryList)
     public void onItemClick(int position) {
         ModelItems modelItems = (ModelItems) entryList.getAdapter().getItem(position);
-        Intent intent = new Intent(this,modelItems.getActivity());
+        Intent intent = new Intent(this, modelItems.getActivity());
         startActivity(intent);
     }
 
