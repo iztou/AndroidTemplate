@@ -20,8 +20,8 @@ import gml.template.androidtemplate.R;
  */
 public class BaseActivity extends AppCompatActivity {
 
-    @Bind(R.id.content)
-    protected FrameLayout content;
+    @Bind(R.id.rootContent)
+    protected FrameLayout rootContent;
     @Bind(R.id.toolbar)
     protected Toolbar toolbar;
 
@@ -34,8 +34,8 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_base);
-        content = (FrameLayout) findViewById(R.id.content);
-        LayoutInflater.from(this).inflate(layoutResID, content);
+        rootContent = (FrameLayout) findViewById(R.id.rootContent);
+        LayoutInflater.from(this).inflate(layoutResID, rootContent);
         ButterKnife.bind(this);
         initToolBar();
     }
@@ -43,8 +43,8 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(View view) {
         super.setContentView(R.layout.activity_base);
-        content = (FrameLayout) findViewById(R.id.content);
-        content.addView(view);
+        rootContent = (FrameLayout) findViewById(R.id.rootContent);
+        rootContent.addView(view);
         ButterKnife.bind(this);
         initToolBar();
     }

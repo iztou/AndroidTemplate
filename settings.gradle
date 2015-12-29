@@ -1,1 +1,1 @@
-include ':app', ':Customize-Volley'
+include ':app', ':Customize-Volley', ':photoselector'

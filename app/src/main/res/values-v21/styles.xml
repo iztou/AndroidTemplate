@@ -1,6 +1,6 @@
 <resources>
 
-    <style name="AppTheme.ToolBar" parent="Base.V7.Theme.AppCompat.Light">
+    <style name="AppTheme.ToolBar" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
         <item name="windowActionBar">false</item>
         <item name="android:colorPrimaryDark">@android:color/holo_red_light</item>
