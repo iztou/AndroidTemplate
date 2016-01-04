@@ -69,7 +69,7 @@ public class MainActivity extends BaseActivity {
                 Observable.create(new Observable.OnSubscribe<Integer>() {
                     @Override
                     public void call(Subscriber<? super Integer> subscriber) {
-                        int times = 10;
+                        int times = 5;
                         long currentTime = System.currentTimeMillis();
                         while (true) {
                             long dyTime = System.currentTimeMillis();
@@ -86,7 +86,6 @@ public class MainActivity extends BaseActivity {
                 }).subscribeOn(Schedulers.newThread()).observeOn(AndroidSchedulers.mainThread()).subscribe(new Action1<Integer>() {
                     @Override
                     public void call(Integer integer) {
-                        Toast.makeText(MainActivity.this, String.valueOf(integer), Toast.LENGTH_SHORT).show();
                         if (integer == 0) {
                             pullToRefresh.refreshComplete();
                         }
