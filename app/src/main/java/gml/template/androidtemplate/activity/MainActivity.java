@@ -108,6 +108,7 @@ public class MainActivity extends BaseActivity {
         itemsArrayList.add(ModelItems.createNewInstance("RxJava测试", RxJavaActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Android Studio生成Activity测试", FullscreenActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("图片选择器测试", PictureSelectorActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("自定义图片选择器示例", PhotoSelectedActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
