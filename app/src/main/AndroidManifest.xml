@@ -64,6 +64,7 @@
         <activity android:name=".activity.PageSlidingTabActivity" />
         <activity android:name=".activity.GreenDaoActivity"/>
         <activity android:name=".activity.PhotoSelectedActivity"/>
+        <activity android:name=".activity.AnimationActivity"/>
         <activity
             android:configChanges="orientation|screenSize"
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" />

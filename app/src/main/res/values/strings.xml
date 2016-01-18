@@ -20,5 +20,8 @@
     <string name="enable">Enable</string>
     <string name="disable">Disable</string>
     <string name="go_select">Select</string>
+    <string name="Start">Start</string>
+    <string name="getInfo">Get Info</string>
+    <string name="textScale">ScaleX</string>
 
 </resources>
