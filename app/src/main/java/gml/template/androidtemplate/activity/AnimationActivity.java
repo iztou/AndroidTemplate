@@ -1,5 +1,6 @@
 package gml.template.androidtemplate.activity;
 
+import android.animation.AnimatorSet;
 import android.animation.IntEvaluator;
 import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
@@ -86,21 +87,24 @@ public class AnimationActivity extends BaseActivity {
     /**
      * 给Linear增加布局动画
      */
-    private void addLayoutAnimation(){
-        AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
+    private void addLayoutAnimation() {
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0, 1);
         alphaAnimation.setDuration(2000);
         LayoutAnimationController lac = new LayoutAnimationController(alphaAnimation, 0.5F);
         // 设置显示的顺序 这个必须要在dely不为0的时候才有效
         lac.setOrder(LayoutAnimationController.ORDER_NORMAL);
         mLayoutAnimation.setLayoutAnimation(lac);
-
     }
 
     /**
      * 开始属性动画
      */
     private void startPropertyAnimation() {
-        ObjectAnimator.ofFloat(mImageExam, "scaleX", 0.5f).setDuration(300).start();
+        ObjectAnimator scaleX = ObjectAnimator.ofFloat(mImageExam, "scaleX", 0.5f).setDuration(300);
+        ObjectAnimator scaleY = ObjectAnimator.ofFloat(mImageExam, "scaleY", 0.5f).setDuration(300);
+        AnimatorSet animatorSet = new AnimatorSet();
+        animatorSet.playTogether(scaleX, scaleY);
+        animatorSet.start();
         ViewWrapper wrapper = new ViewWrapper(mScaleButton);
         //通过包装类来修改
         //ObjectAnimator.ofInt(wrapper, "width", mScaleButton.getWidth() / 2).setDuration(300).start();
