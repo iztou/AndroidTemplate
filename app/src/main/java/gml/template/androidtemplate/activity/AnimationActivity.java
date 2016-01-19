@@ -6,7 +6,11 @@ import android.animation.ValueAnimator;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import butterknife.Bind;
@@ -24,11 +28,16 @@ public class AnimationActivity extends BaseActivity {
     TextView mInfo;
     @Bind(R.id.scaleButton)
     TextView mScaleButton;
+    @Bind(R.id.infoLayout)
+    ScrollView mInfoLayout;
+    @Bind(R.id.layoutAnimation)
+    LinearLayout mLayoutAnimation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_animation);
+        addLayoutAnimation();
     }
 
     @OnClick(R.id.startBtn)
@@ -75,19 +84,34 @@ public class AnimationActivity extends BaseActivity {
     }
 
     /**
+     * 给Linear增加布局动画
+     */
+    private void addLayoutAnimation(){
+        AlphaAnimation alphaAnimation = new AlphaAnimation(0,1);
+        alphaAnimation.setDuration(2000);
+        LayoutAnimationController lac = new LayoutAnimationController(alphaAnimation, 0.5F);
+        // 设置显示的顺序 这个必须要在dely不为0的时候才有效
+        lac.setOrder(LayoutAnimationController.ORDER_NORMAL);
+        mLayoutAnimation.setLayoutAnimation(lac);
+
+    }
+
+    /**
      * 开始属性动画
      */
     private void startPropertyAnimation() {
         ObjectAnimator.ofFloat(mImageExam, "scaleX", 0.5f).setDuration(300).start();
         ViewWrapper wrapper = new ViewWrapper(mScaleButton);
-//        ObjectAnimator.ofInt(wrapper, "width", mScaleButton.getWidth() / 2).setDuration(300).start();
-        startPropertyAnimation(mScaleButton,mScaleButton.getWidth(),mScaleButton.getWidth()/2);
+        //通过包装类来修改
+        //ObjectAnimator.ofInt(wrapper, "width", mScaleButton.getWidth() / 2).setDuration(300).start();
+        //通过监听修改实际的宽度
+        startPropertyAnimation(mScaleButton, mScaleButton.getWidth(), mScaleButton.getWidth() / 2);
     }
 
-    private void startPropertyAnimation(final View target, final int startValue, final int endValue){
-        final IntEvaluator intEvaluator=new IntEvaluator();
+    private void startPropertyAnimation(final View target, final int startValue, final int endValue) {
+        final IntEvaluator intEvaluator = new IntEvaluator();
         //将动画值限定在(1,100)之间
-        ValueAnimator valueAnimator=ValueAnimator.ofInt(1,100);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(1, 100);
         //动画持续时间
         valueAnimator.setDuration(300);
         //监听动画的执行
@@ -95,12 +119,12 @@ public class AnimationActivity extends BaseActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 //得到当前瞬时的动画值,在(1,100)之间
-                Integer currentAnimatedValue=(Integer) valueAnimator.getAnimatedValue();
+                Integer currentAnimatedValue = (Integer) valueAnimator.getAnimatedValue();
                 //计算得到当前系数fraction
-                float fraction=currentAnimatedValue/100f;
-                System.out.println("currentAnimatedValue="+currentAnimatedValue+",fraction="+fraction);
+                float fraction = currentAnimatedValue / 100f;
+                System.out.println("currentAnimatedValue=" + currentAnimatedValue + ",fraction=" + fraction);
                 //评估出当前的宽度其设置
-                target.getLayoutParams().width=intEvaluator.evaluate(fraction, startValue, endValue);
+                target.getLayoutParams().width = intEvaluator.evaluate(fraction, startValue, endValue);
                 target.requestLayout();
             }
         });
