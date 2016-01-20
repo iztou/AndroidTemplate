@@ -19,9 +19,7 @@
     <!-- Backward-compatible version of ?android:attr/buttonBarButtonStyle -->
     <style name="ButtonBarButton" />
 
-    <style name="AppTheme.ToolBar" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="android:windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
+    <style name="AppTheme.ToolBar" parent="Theme.AppCompat.Light.NoActionBar">
     </style>
 
 </resources>

@@ -110,6 +110,7 @@ public class MainActivity extends BaseActivity {
         itemsArrayList.add(ModelItems.createNewInstance("自定义图片选择器示例", PhotoSelectedActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Base64加解密示例", Base64Activity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Volley+OkHttp示例", OkHttpActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("Retrofit+OkHttp示例", RetrofitOkHttpActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("动画示例", AnimationActivity.class));
