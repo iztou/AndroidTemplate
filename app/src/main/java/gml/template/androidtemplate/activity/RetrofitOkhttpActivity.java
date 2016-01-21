@@ -22,6 +22,8 @@ import retrofit2.http.Path;
  * Created by gml on 2016/1/20.
  */
 public class RetrofitOkHttpActivity extends BaseActivity {
+
+    public static final String URL = "users/{user}/repos";
     @Bind(R.id.msg)
     TextView msg;
     @Bind(R.id.startBtn)
@@ -56,7 +58,7 @@ public class RetrofitOkHttpActivity extends BaseActivity {
     }
 
     public interface GitHubService {
-        @GET("users/{user}/repos")
+        @GET(URL)
         Call<List<Repo>> listRepos(@Path("user") String user);
     }
 }
