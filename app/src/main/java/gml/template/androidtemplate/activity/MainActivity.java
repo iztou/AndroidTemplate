@@ -114,6 +114,7 @@ public class MainActivity extends BaseActivity {
         itemsArrayList.add(ModelItems.createNewInstance("ViewPager指示器示例", PageSlidingTabActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("GreenDao示例", GreenDaoActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("动画示例", AnimationActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("自定义形状示例", CustomizeShapeActivity.class));
         modelAdapter.setModelItems(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }

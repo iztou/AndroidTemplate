@@ -66,6 +66,7 @@
         <activity android:name=".activity.PhotoSelectedActivity"/>
         <activity android:name=".activity.AnimationActivity"/>
         <activity android:name=".activity.RetrofitOkHttpActivity"/>
+        <activity android:name=".activity.CustomizeShapeActivity"/>
         <activity
             android:configChanges="orientation|screenSize"
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" />
