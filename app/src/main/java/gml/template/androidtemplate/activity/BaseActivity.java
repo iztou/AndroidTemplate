@@ -9,6 +9,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.norbsoft.typefacehelper.TypefaceHelper;
 
 import butterknife.Bind;
@@ -34,6 +35,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_base);
+        Fresco.initialize(this);
         rootContent = (FrameLayout) findViewById(R.id.rootContent);
         LayoutInflater.from(this).inflate(layoutResID, rootContent);
         ButterKnife.bind(this);
@@ -43,6 +45,7 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(View view) {
         super.setContentView(R.layout.activity_base);
+        Fresco.initialize(this);
         rootContent = (FrameLayout) findViewById(R.id.rootContent);
         rootContent.addView(view);
         ButterKnife.bind(this);
