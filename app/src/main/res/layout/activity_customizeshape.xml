@@ -34,6 +34,7 @@
         android:layout_width="fill_parent"
         android:layout_height="2dp"
         android:background="@drawable/dotted_line"
+        android:layerType="software"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
@@ -52,6 +53,7 @@
         android:layout_width="fill_parent"
         android:layout_height="2dp"
         android:background="@drawable/dotted_line_2"
+        android:layerType="software"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"/>
 
