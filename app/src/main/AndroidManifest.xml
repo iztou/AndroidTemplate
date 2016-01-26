@@ -44,7 +44,7 @@
 
         <activity
             android:name=".activity.SwipeLayoutActivity"
-            android:label="主界面"/>
+            android:label="主界面" />
         <activity android:name=".activity.SwipeOtherActivity" />
         <activity android:name=".activity.MyScrollActicity" />
         <activity android:name=".activity.RxJavaActivity" />
@@ -62,15 +62,16 @@
             android:label="@string/title_activity_ok_http"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".activity.PageSlidingTabActivity" />
-        <activity android:name=".activity.GreenDaoActivity"/>
-        <activity android:name=".activity.PhotoSelectedActivity"/>
-        <activity android:name=".activity.AnimationActivity"/>
-        <activity android:name=".activity.RetrofitOkHttpActivity"/>
-        <activity android:name=".activity.CustomizeShapeActivity"/>
-        <activity android:name=".activity.FrescoActivity"/>
+        <activity android:name=".activity.GreenDaoActivity" />
+        <activity android:name=".activity.PhotoSelectedActivity" />
+        <activity android:name=".activity.AnimationActivity" />
+        <activity android:name=".activity.RetrofitOkHttpActivity" />
+        <activity android:name=".activity.CustomizeShapeActivity" />
+        <activity android:name=".activity.FrescoActivity" />
         <activity
-            android:configChanges="orientation|screenSize"
-            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity" />
+            android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity android:name=".activity.RecycleViewActivity"></activity>
     </application>
 
 </manifest>
