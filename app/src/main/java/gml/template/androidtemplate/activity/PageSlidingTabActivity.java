@@ -25,7 +25,7 @@ import java.util.List;
 import gml.template.androidtemplate.R;
 import gml.template.androidtemplate.util.ColorPhrase;
 
-public class PageSlidingTabActivity extends Activity implements LocationListener {
+public class PageSlidingTabActivity extends Activity {
 
     private PagerSlidingTabStrip strip;
     private ViewPager viewPager;
@@ -53,10 +53,10 @@ public class PageSlidingTabActivity extends Activity implements LocationListener
      * 获取位置信息服务
      */
     private void startLocationService() {
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+        LocationManager locationManager = (LocationManager) getApplicationContext().getSystemService(Context.LOCATION_SERVICE);
         boolean permission = PackageManager.PERMISSION_GRANTED == getPackageManager().checkPermission("android.permission.ACCESS_FINE_LOCATION", "gml.template.androidtemplate");
         if (permission) {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, this);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 1000, 0, new TestLocationListener());
             Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
             if (location != null) {
                 latitude = location.getLatitude();     //经度
@@ -66,30 +66,33 @@ public class PageSlidingTabActivity extends Activity implements LocationListener
         }
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
-        //当坐标改变时触发此函数，如果Provider传进相同的坐标，它就不会被触发
-        // log it when the location changes
-        if (location != null) {
-            Log.i("SuperMap", "Location changed : Lat: "
-                    + location.getLatitude() + " Lng: "
-                    + location.getLongitude());
+    private static class TestLocationListener implements LocationListener {
+
+        @Override
+        public void onLocationChanged(Location location) {
+            //当坐标改变时触发此函数，如果Provider传进相同的坐标，它就不会被触发
+            // log it when the location changes
+            if (location != null) {
+                Log.i("SuperMap", "Location changed : Lat: "
+                        + location.getLatitude() + " Lng: "
+                        + location.getLongitude());
+            }
         }
-    }
 
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
 
-    }
+        }
 
-    @Override
-    public void onProviderEnabled(String provider) {
+        @Override
+        public void onProviderEnabled(String provider) {
 
-    }
+        }
 
-    @Override
-    public void onProviderDisabled(String provider) {
+        @Override
+        public void onProviderDisabled(String provider) {
 
+        }
     }
 
     class SimplePagerAdapter extends PagerAdapter {
