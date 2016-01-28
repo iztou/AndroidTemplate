@@ -23,5 +23,7 @@
     <string name="Start">Start</string>
     <string name="getInfo">Get Info</string>
     <string name="textScale">ScaleX</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>

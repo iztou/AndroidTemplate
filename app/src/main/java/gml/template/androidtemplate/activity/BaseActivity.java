@@ -1,6 +1,7 @@
 package gml.template.androidtemplate.activity;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
@@ -52,6 +53,7 @@ public class BaseActivity extends AppCompatActivity {
         initToolBar();
     }
 
+
     /**
      * 初始化ToolBar
      */
@@ -59,6 +61,8 @@ public class BaseActivity extends AppCompatActivity {
         toolbar.setTitle("Android Template");
         toolbar.setTitleTextColor(0xffffffff);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
     }
 
     @Override
