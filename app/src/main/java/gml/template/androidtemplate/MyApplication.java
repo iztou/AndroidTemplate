@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.norbsoft.typefacehelper.TypefaceCollection;
 import com.norbsoft.typefacehelper.TypefaceHelper;
 import com.squareup.leakcanary.LeakCanary;
@@ -23,6 +24,7 @@ public class MyApplication extends Application {
         super.onCreate();
         initTypeface();
         LeakCanary.install(this);
+        Fresco.initialize(this);
         instance = this;
     }
 

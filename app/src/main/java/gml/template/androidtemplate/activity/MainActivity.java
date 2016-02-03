@@ -140,6 +140,7 @@ public class MainActivity extends BaseActivity {
         itemsArrayList.add(ModelItems.createNewInstance("自定义形状示例", CustomizeShapeActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Fresco示例", FrescoActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("RecyclerViewActivity示例", RecycleViewActivity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("ServiceActivity示例", ServiceActivity.class));
         modelAdapter.setModelItems(itemsArrayList.toArray(new ModelItems[0]));
         entryList.setAdapter(modelAdapter);
     }

@@ -36,7 +36,6 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(R.layout.activity_base);
-        Fresco.initialize(this);
         rootContent = (FrameLayout) findViewById(R.id.rootContent);
         LayoutInflater.from(this).inflate(layoutResID, rootContent);
         ButterKnife.bind(this);
@@ -46,13 +45,17 @@ public class BaseActivity extends AppCompatActivity {
     @Override
     public void setContentView(View view) {
         super.setContentView(R.layout.activity_base);
-        Fresco.initialize(this);
         rootContent = (FrameLayout) findViewById(R.id.rootContent);
         rootContent.addView(view);
         ButterKnife.bind(this);
         initToolBar();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ButterKnife.unbind(this);
+    }
 
     /**
      * 初始化ToolBar

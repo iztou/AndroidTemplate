@@ -68,10 +68,12 @@
         <activity android:name=".activity.RetrofitOkHttpActivity" />
         <activity android:name=".activity.CustomizeShapeActivity" />
         <activity android:name=".activity.FrescoActivity" />
+        <activity android:name=".activity.ServiceActivity" />
         <activity
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:configChanges="orientation|screenSize" />
-        <activity android:name=".activity.RecycleViewActivity"></activity>
+        <activity android:name=".activity.RecycleViewActivity"/>
+        <service android:name=".service.LocalService" android:exported="false"/>
     </application>
 
 </manifest>
