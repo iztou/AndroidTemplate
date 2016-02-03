@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 
 /**
  * Created by guomenglong on 16/2/3.
+ * 本地服务
  */
 public class LocalService extends Service {
 
