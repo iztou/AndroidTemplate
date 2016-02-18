@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -125,7 +124,7 @@ public class MainActivity extends BaseActivity {
         ModelAdapter modelAdapter = new ModelAdapter(this);
         ArrayList<ModelItems> itemsArrayList = new ArrayList<>();
         itemsArrayList.add(ModelItems.createNewInstance("向左滑动删除", SwipeLayoutActivity.class));
-        itemsArrayList.add(ModelItems.createNewInstance("滑动固定", MyScrollActicity.class));
+        itemsArrayList.add(ModelItems.createNewInstance("滑动固定", MyScrollActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("测试滑动过程中并缩小", SwipeOtherActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("RxJava测试", RxJavaActivity.class));
         itemsArrayList.add(ModelItems.createNewInstance("Android Studio生成Activity测试", FullscreenActivity.class));

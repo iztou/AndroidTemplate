@@ -46,7 +46,7 @@
             android:name=".activity.SwipeLayoutActivity"
             android:label="主界面" />
         <activity android:name=".activity.SwipeOtherActivity" />
-        <activity android:name=".activity.MyScrollActicity" />
+        <activity android:name=".activity.MyScrollActivity" />
         <activity android:name=".activity.RxJavaActivity" />
         <activity android:name=".activity.PictureSelectorActivity" />
         <activity

@@ -12,7 +12,7 @@ import gml.template.androidtemplate.R;
 /**
  * Created by guomenglong on 15/3/11.
  */
-public class MyScrollActicity extends Activity implements MyScrollView.OnScrollListener {
+public class MyScrollActivity extends Activity implements MyScrollView.OnScrollListener {
     private View fixed;
     private MyScrollView scroll;
     private int fixedposition = -1;
@@ -49,7 +49,10 @@ public class MyScrollActicity extends Activity implements MyScrollView.OnScrollL
 //            fixed.bringToFront();
         System.out.println("Y轴滑动距离---->" + scrollY + "top的位置是:" + fixed.getTop());
         int mBuyLayout2ParentTop = Math.max(scrollY, fixedposition);
-        fixed.layout(0, mBuyLayout2ParentTop, fixed.getWidth(), mBuyLayout2ParentTop + fixed.getHeight());
+        if(fixed.getTop()!=mBuyLayout2ParentTop){
+            fixed.layout(0, mBuyLayout2ParentTop, fixed.getWidth(), mBuyLayout2ParentTop + fixed.getHeight());
+            fixed.bringToFront();
+        }
     }
 
     /**
