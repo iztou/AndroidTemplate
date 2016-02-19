@@ -6,8 +6,8 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.Scroller;
 
-import gml.template.androidtemplate.view.MyScrollView;
 import gml.template.androidtemplate.R;
+import gml.template.androidtemplate.view.MyScrollView;
 
 /**
  * Created by guomenglong on 15/3/11.
@@ -27,7 +27,7 @@ public class MyScrollActivity extends Activity implements MyScrollView.OnScrollL
         fixed = findViewById(R.id.fixed);
         View flying = findViewById(R.id.flying);
         scroll.setOnScrollListener(this);
-//当布局的状态或者控件的可见性发生改变回调的接口
+        //当布局的状态或者控件的可见性发生改变回调的接口
         findViewById(R.id.parent_layout).getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
 
             @Override
@@ -42,14 +42,14 @@ public class MyScrollActivity extends Activity implements MyScrollView.OnScrollL
 
     @Override
     public void onScroll(int scrollY) {
-        if(fixedposition == -1)
+        if (fixedposition == -1)
             fixedposition = fixed.getTop();
 //        View childAt = scroll.getChildAt(scroll.getChildCount() - 1);
 //        if(childAt != fixed)
 //            fixed.bringToFront();
         System.out.println("Y轴滑动距离---->" + scrollY + "top的位置是:" + fixed.getTop());
         int mBuyLayout2ParentTop = Math.max(scrollY, fixedposition);
-        if(fixed.getTop()!=mBuyLayout2ParentTop){
+        if (fixed.getTop() != mBuyLayout2ParentTop) {
             fixed.layout(0, mBuyLayout2ParentTop, fixed.getWidth(), mBuyLayout2ParentTop + fixed.getHeight());
             fixed.bringToFront();
         }
@@ -57,11 +57,12 @@ public class MyScrollActivity extends Activity implements MyScrollView.OnScrollL
 
     /**
      * 测试Scroller例子
+     *
      * @param view
      */
-    public void scrollTest(View view){
+    public void scrollTest(View view) {
         scroller.forceFinished(true);
-        scroller.startScroll(0,0,0,100);
+        scroller.startScroll(0, 0, 0, 100);
         scroll.invalidate();
     }
 }
