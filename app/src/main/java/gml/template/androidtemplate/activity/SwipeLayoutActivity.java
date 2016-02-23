@@ -1,10 +1,6 @@
 package gml.template.androidtemplate.activity;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.Toast;
 
 import gml.template.androidtemplate.R;
 
