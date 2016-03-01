@@ -75,6 +75,7 @@
 -keep class android.support.** {*;}
 -keep interface android.support.v4.** {*;}
 -keep interface android.support.v7.widget.** {*;}
+-keep class gml.greendao.** {*;}
 -keep class bolts.** {*;}
 -keep class butterknife.** {*;}
 -keep class **$$ViewBinder { *; }
@@ -101,6 +102,10 @@
 
 -keepclasseswithmembernames class * {
     @butterknife.* <fields>;
+}
+
+-keepclasseswithmembernames class * {
+    @butterknife.* <methods>;
 }
 
 -keepclasseswithmembernames class * {
