@@ -6,6 +6,7 @@
         <item name="colorPrimaryDark">@android:color/holo_red_light</item>
         <item name="colorAccent">@android:color/holo_red_light</item>
         <item name="drawerArrowStyle">@style/DrawerArrowStyle</item>
+        <!--<item name="drawerArrowStyle">@style/AppTheme.DrawerArrowToggle</item>-->
         <item name="actionMenuTextColor">#FFFFFF</item>
         <!--<item name="android:actionOverflowButtonStyle">@android:style/Widget.Material.Light.ActionBar</item>-->
     </style>
