@@ -43,8 +43,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         RecycleViewActivity.PInfo pInfo = pInfos.get(position);
         AppListViewHolder listViewHolder = (AppListViewHolder) holder;
-        listViewHolder.appIcon.setImageDrawable(pInfo.icon);
-        listViewHolder.appName.setText(pInfo.appname);
+        listViewHolder.appIcon.setImageDrawable(pInfo.getIcon());
+        listViewHolder.appName.setText(pInfo.getAppname());
     }
 
     @Override
