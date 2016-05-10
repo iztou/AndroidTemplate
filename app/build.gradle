@@ -52,6 +52,7 @@ dependencies {
     compile project(':Customize-Volley')
     compile project(':multi-image-selector')
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    compile 'com.github.gcacace:signature-pad:1.1.0'
 }
 buildscript {
     ext.kotlin_version = '1.0.1-2'

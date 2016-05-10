@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.support.v4.widget.DrawerLayout
 import android.support.v7.app.ActionBarDrawerToggle
 import android.view.View
+import android.widget.AdapterView
 import android.widget.ListView
 import android.widget.Toast
 import gml.template.androidtemplate.R
@@ -119,8 +120,15 @@ class MainActivity : BaseActivity() {
         itemsArrayList.add(ModelItems.createNewInstance("Fresco示例", FrescoActivity::class.java))
         itemsArrayList.add(ModelItems.createNewInstance("RecyclerViewActivity示例", RecycleViewActivity::class.java))
         itemsArrayList.add(ModelItems.createNewInstance("ServiceActivity示例", ServiceActivity::class.java))
+        itemsArrayList.add(ModelItems.createNewInstance("签字示例", SignatureActivity::class.java))
         modelAdapter.setModelItems(itemsArrayList.toArray<ModelItems>(arrayOfNulls<ModelItems>(0)))
         entryList!!.adapter = modelAdapter
     }
 
+    class itemClickedListener : AdapterView.OnItemClickListener{
+        override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+            throw UnsupportedOperationException()
+        }
+
+    }
 }

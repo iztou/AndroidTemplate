@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="gml.template.androidtemplate">
+          package="gml.template.androidtemplate">
 
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
 
     <!-- 融云权限 start -->
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.WAKE_LOCK" />
-    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-    <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"/>
+    <uses-permission android:name="android.permission.VIBRATE"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
     <application
         android:name=".MyApplication"
@@ -29,51 +29,54 @@
             android:name=".activity.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.ViewPagerActivity"
-            android:launchMode="standard" />
 
         <meta-data
             android:name="UMENG_APPKEY"
-            android:value="5233dc8f56240bb39204dbfe" />
+            android:value="5233dc8f56240bb39204dbfe"/>
 
         <activity
             android:name=".activity.SwipeLayoutActivity"
-            android:label="主界面" />
-        <activity android:name=".activity.SwipeOtherActivity" />
-        <activity android:name=".activity.MyScrollActivity" />
-        <activity android:name=".activity.RxJavaActivity" />
-        <activity android:name=".activity.PictureSelectorActivity" />
+            android:label="主界面"/>
+        <activity android:name=".activity.SwipeOtherActivity"/>
+        <activity android:name=".activity.MyScrollActivity"/>
+        <activity android:name=".activity.RxJavaActivity"/>
+        <activity android:name=".activity.PictureSelectorActivity"/>
         <activity
             android:name=".activity.FullscreenActivity"
             android:configChanges="orientation|keyboardHidden|screenSize"
             android:label="@string/title_activity_fullscreen"
-            android:theme="@style/FullscreenTheme" />
+            android:theme="@style/FullscreenTheme"/>
         <activity
             android:name=".activity.Base64Activity"
-            android:label="@string/title_activity_base64" />
+            android:label="@string/title_activity_base64"/>
         <activity
             android:name=".activity.OkHttpActivity"
             android:label="@string/title_activity_ok_http"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".activity.PageSlidingTabActivity" />
-        <activity android:name=".activity.GreenDaoActivity" />
-        <activity android:name=".activity.PhotoSelectedActivity" />
-        <activity android:name=".activity.AnimationActivity" />
-        <activity android:name=".activity.RetrofitOkHttpActivity" />
-        <activity android:name=".activity.CustomizeShapeActivity" />
-        <activity android:name=".activity.FrescoActivity" />
-        <activity android:name=".activity.ServiceActivity" />
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name=".activity.PageSlidingTabActivity"/>
+        <activity android:name=".activity.GreenDaoActivity"/>
+        <activity android:name=".activity.PhotoSelectedActivity"/>
+        <activity android:name=".activity.AnimationActivity"/>
+        <activity android:name=".activity.RetrofitOkHttpActivity"/>
+        <activity android:name=".activity.CustomizeShapeActivity"/>
+        <activity android:name=".activity.FrescoActivity"/>
+        <activity android:name=".activity.ServiceActivity"/>
         <activity
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
-            android:configChanges="orientation|screenSize" />
+            android:configChanges="orientation|screenSize"/>
         <activity android:name=".activity.RecycleViewActivity"/>
-        <service android:name=".service.LocalService" android:exported="false"/>
+
+        <service
+            android:name=".service.LocalService"
+            android:exported="false"/>
+
+        <activity android:name=".activity.SignatureActivity">
+        </activity>
     </application>
 
 </manifest>
