@@ -29,12 +29,12 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:support-v4:23.2.0'
-    compile 'com.android.support:appcompat-v7:23.2.0'
+    compile 'com.android.support:support-v4:23.4.0'
+    compile 'com.android.support:appcompat-v7:23.4.0'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'com.norbsoft.typefacehelper:library:0.9.0' //字体转换
-    compile 'com.android.support:design:23+'
+    compile 'com.android.support:design:23.4.0'
     compile 'com.astuetz:pagerslidingtabstrip:1.0.1'
     compile 'com.squareup.phrase:phrase:1.1.0'
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -53,9 +53,11 @@ dependencies {
     compile project(':multi-image-selector')
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile 'com.github.gcacace:signature-pad:1.1.0'
+    compile 'com.afollestad.material-dialogs:core:0.8.5.9'
+    compile 'com.joanzapata.pdfview:android-pdfview:1.0.4@aar'
 }
 buildscript {
-    ext.kotlin_version = '1.0.1-2'
+    ext.kotlin_version = '1.0.2'
     repositories {
         mavenCentral()
     }

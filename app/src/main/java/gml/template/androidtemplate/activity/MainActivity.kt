@@ -121,6 +121,8 @@ class MainActivity : BaseActivity() {
         itemsArrayList.add(ModelItems.createNewInstance("RecyclerViewActivity示例", RecycleViewActivity::class.java))
         itemsArrayList.add(ModelItems.createNewInstance("ServiceActivity示例", ServiceActivity::class.java))
         itemsArrayList.add(ModelItems.createNewInstance("签字示例", SignatureActivity::class.java))
+        itemsArrayList.add(ModelItems.createNewInstance("RxJava RecycleView示例", RecycleViewRxActivity::class.java))
+        itemsArrayList.add(ModelItems.createNewInstance("IText 弹框示例", ITextActivity::class.java))
         modelAdapter.setModelItems(itemsArrayList.toArray<ModelItems>(arrayOfNulls<ModelItems>(0)))
         entryList!!.adapter = modelAdapter
     }

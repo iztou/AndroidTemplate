@@ -66,6 +66,7 @@
         <activity android:name=".activity.CustomizeShapeActivity"/>
         <activity android:name=".activity.FrescoActivity"/>
         <activity android:name=".activity.ServiceActivity"/>
+        <activity android:name=".activity.ITextActivity"/>
         <activity
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:configChanges="orientation|screenSize"/>
@@ -75,8 +76,8 @@
             android:name=".service.LocalService"
             android:exported="false"/>
 
-        <activity android:name=".activity.SignatureActivity">
-        </activity>
+        <activity android:name=".activity.SignatureActivity"/>
+        <activity android:name=".activity.RecycleViewRxActivity"/>
     </application>
 
 </manifest>
