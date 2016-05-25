@@ -123,6 +123,8 @@ class MainActivity : BaseActivity() {
         itemsArrayList.add(ModelItems.createNewInstance("签字示例", SignatureActivity::class.java))
         itemsArrayList.add(ModelItems.createNewInstance("RxJava RecycleView示例", RecycleViewRxActivity::class.java))
         itemsArrayList.add(ModelItems.createNewInstance("IText 弹框示例", ITextActivity::class.java))
+        itemsArrayList.add(ModelItems.createNewInstance("XML 分析", XMLParseActivity::class.java))
+        itemsArrayList.add(ModelItems.createNewInstance("XML 行读取并拷贝", XMLReadLineCopyActivity::class.java))
         modelAdapter.setModelItems(itemsArrayList.toArray<ModelItems>(arrayOfNulls<ModelItems>(0)))
         entryList!!.adapter = modelAdapter
     }

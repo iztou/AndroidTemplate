@@ -67,6 +67,8 @@
         <activity android:name=".activity.FrescoActivity"/>
         <activity android:name=".activity.ServiceActivity"/>
         <activity android:name=".activity.ITextActivity"/>
+        <activity android:name=".activity.XMLParseActivity"/>
+        <activity android:name=".activity.XMLReadLineCopyActivity"/>
         <activity
             android:name="me.nereo.multi_image_selector.MultiImageSelectorActivity"
             android:configChanges="orientation|screenSize"/>
